@@ -1,0 +1,221 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Configurações do corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e2a38;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+/* Contêiner principal */
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh;
+}
+
+/* Contêiner do chat */
+.chat-container {
+    width: 50%; /* Largura padrão do chat */
+    height: 100%;
+    max-height: 90vh;
+    background-color: #2c3e50;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: width 0.3s ease; /* Transição suave */
+}
+
+/* Cabeçalho do chat */
+.chat-header {
+    position: relative;
+    background-color: #415a77;
+    padding: 10px;
+    text-align: center;
+    color: #e0e0e0;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    overflow: hidden; /* Limitar as gotas ao cabeçalho */
+}
+
+/* Título do cabeçalho */
+.chat-header h2 {
+    position: relative;
+    z-index: 10; /* Manter o texto acima das gotas */
+}
+
+/* Estilo das gotas de chuva */
+.rain-drop {
+    position: absolute;
+    top: -50px; /* Início acima do cabeçalho */
+    color: #0f0; /* Verde para o efeito Matrix */
+    font-family: monospace;
+    font-size: 1em;
+    animation: fall 2s linear forwards;
+    pointer-events: none; /* Evita interação com as gotas */
+}
+
+/* Animação de queda das gotas */
+@keyframes fall {
+    from {
+        top: -50px; /* Ponto inicial acima do cabeçalho */
+        opacity: 1;
+    }
+    to {
+        top: 100px; /* Alcança o limite inferior do cabeçalho */
+        opacity: 0;
+    }
+}
+
+/* Caixa de mensagens do chat */
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #1b263b;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: calc(90vh - 130px);
+}
+
+/* Estilos das mensagens */
+.chat-message {
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: #0e6b7d;
+    color: #ffffff;
+    position: relative;
+    border-radius: 20px 20px 5px 20px;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: #3a506b;
+    color: #d3dce4;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 20px 20px 20px 5px;
+}
+
+.bot-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.message-text {
+    display: inline-block;
+}
+
+/* Área de entrada de texto */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #415a77;
+    border-top: 1px solid #444;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #55697b;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+    background-color: #1b263b;
+    color: #e0e0e0;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    background-color: #0e6b7d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s;
+}
+
+.chat-input button:hover {
+    background-color: #128fa0;
+}
+
+/* Contêiner do PDF */
+.pdf-container {
+    width: 60%;
+    height: 90vh;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-left: 20px;
+    display: none;
+    overflow: hidden;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.pdf-container.active {
+    display: block;
+    width: 60%;
+}
+
+#pdf-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.pdf-active .chat-container {
+    width: 35%;
+}
+
+.pdf-active .pdf-container {
+    display: block;
+    width: 65%;
+}
+
+/* Transição para mensagens */
+.message-enter {
+    opacity: 0;
+    transform: rotateY(90deg) translateY(10px);
+    animation: messageEnterRotate 0.5s ease forwards;
+}
+
+@keyframes messageEnterRotate {
+    from {
+        opacity: 0;
+        transform: rotateY(90deg) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(0deg) translateY(0);
+    }
+
+    
+}

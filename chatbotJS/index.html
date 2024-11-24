@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="styles/icons8-chatbot-48.png">
+    <title>Chatbot 4G SC</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="main-container">
+            <div class="chat-container" id="chat-container">
+                <div class="chat-header" id="chat-header">
+                    <h2>Chatbot 4G - SC</h2>
+                </div>
+                <div class="chat-box" id="chat-box">
+                    <div class="chat-message bot-message">
+                        <img src="styles/bot.png" alt="Bot Icon" class="bot-icon">
+                        <div class="message-text">Olá, sou o Bob! Como posso ajudar?</div>
+                    </div>
+                    <div class="chat-message user-message">
+                        <div class="message-text">Oi! Me conte mais sobre o 5G.</div>
+                    </div>
+                </div>                
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+                    <button id="button" onclick="sendMessage()">Enviar</button>
+                </div>
+            </div>
+        
+            <!-- Contêiner para exibir o PDF -->
+            <div class="pdf-container" id="pdf-container">
+                <iframe id="pdf-frame" width="100%" height="100%" style="border: none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
